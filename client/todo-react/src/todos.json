@@ -1,0 +1,17 @@
+[
+  {
+    "title": "Reading",
+    "description": "Read a book",
+    "complete": true
+  },
+  {
+    "title": "Shopping",
+    "description": "Go shopping",
+    "complete": true
+  },
+  {
+    "title": "Github",
+    "description": "Fix issues",
+    "complete": false
+  }
+]
