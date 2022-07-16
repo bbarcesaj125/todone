@@ -3,3 +3,5 @@ interface Item {
   description: string;
   complete: boolean;
 }
+
+type ToggleItem = (currentItem: Item) => void;
