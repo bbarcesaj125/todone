@@ -1,13 +1,17 @@
 import React from "react";
 import { useState } from "react";
 import TodoList from "./components/TodoList";
+import SingleView from "./components/SingleView";
 import todoData from "./todos.json";
 import "./App.css";
 
+interface Props {
+  singleView: boolean;
+}
 // Getting initial data from a JSON file
 const initialItems: Item[] = todoData;
 
-function App() {
+const App: React.FC<Props> = (props) => {
   const [items, setItems] = useState(initialItems);
 
   const toggleItem = (currentItem: Item) => {
@@ -34,7 +38,11 @@ function App() {
     setItems(updatedItems);
   };
 
-  return <TodoList items={items} toggleItem={toggleItem} />;
-}
+  if (!props.singleView) {
+    return <TodoList items={items} toggleItem={toggleItem} />;
+  } else {
+    return <SingleView items={items} />;
+  }
+};
 
 export default App;

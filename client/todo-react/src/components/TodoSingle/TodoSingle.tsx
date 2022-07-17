@@ -1,5 +1,6 @@
 import React from "react";
 import styled from "styled-components";
+import { Link } from "react-router-dom";
 
 interface Props {
   item: Item;
@@ -22,7 +23,9 @@ const TodoSingle: React.FC<Props> = ({ item, toggleItem }) => {
           toggleItem(item);
         }}
       />
-      <Label {...item}>{item.title}</Label>
+      <Link to={`/post/${item.title}`}>
+        <Label {...item}>{item.title}</Label>
+      </Link>
     </li>
   );
 };
