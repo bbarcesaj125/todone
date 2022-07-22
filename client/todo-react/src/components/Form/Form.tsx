@@ -35,7 +35,7 @@ const Form: React.FC<Props> = ({ addItem }) => {
       <input
         type="text"
         name="title"
-        value={inputs.title || ""}
+        value={inputs.title}
         onChange={handleChange}
         required
         placeholder="Title"
@@ -46,7 +46,7 @@ const Form: React.FC<Props> = ({ addItem }) => {
       </h2>
       <textarea
         name="description"
-        value={inputs.description || ""}
+        value={inputs.description}
         onChange={handleChange}
         placeholder="Description"
         aria-label="description"

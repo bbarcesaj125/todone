@@ -9,7 +9,7 @@ ReactDOM.render(
     <BrowserRouter>
       <Routes>
         <Route path="/" element={<App singleView={false} />} />
-        <Route path="/post/:id" element={<App singleView={true} />} />
+        <Route path="/task/:id" element={<App singleView={true} />} />
       </Routes>
     </BrowserRouter>
   </React.StrictMode>,

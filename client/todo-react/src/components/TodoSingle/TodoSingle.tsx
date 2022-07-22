@@ -19,11 +19,11 @@ const TodoSingle: React.FC<Props> = ({ item, toggleItem }) => {
       <input
         type="checkbox"
         checked={item.complete}
-        onClick={() => {
+        onChange={() => {
           toggleItem(item);
         }}
       />
-      <Link to={`/post/${item.title}`}>
+      <Link to={`/task/${item.title}`}>
         <Label {...item}>{item.title}</Label>
       </Link>
     </li>

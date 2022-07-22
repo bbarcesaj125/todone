@@ -1,10 +1,13 @@
 import React from "react";
-import { useState, useEffect } from "react";
+import { useState, useEffect, createContext } from "react";
 import TodoList from "./components/TodoList";
 import SingleView from "./components/SingleView";
 import Form from "./components/Form";
 import todoData from "./todos.json";
 import "./App.css";
+
+// Global Env. variables
+const SERVER: boolean = process.env.REACT_APP_SERVER == "true";
 
 interface Props {
   singleView: boolean;
@@ -12,25 +15,70 @@ interface Props {
 
 // Getting initial data from a JSON file
 const initialItems: Item[] = todoData;
+// Creating a context to avoid props drilling
+export const TodoContext = createContext<ToggleItem>({} as ToggleItem);
 
 const App: React.FC<Props> = (props) => {
-  const [items, setItems] = useState(() => {
-    // Getting stored values
-    const savedItems = localStorage.getItem("items");
-    let parsedItems: Item[];
-    if (savedItems == null) {
-      parsedItems = initialItems;
-    } else {
-      parsedItems = JSON.parse(savedItems);
-    }
-    return parsedItems;
-  });
+  // Initial data (Offline mode)
+  const savedItems = localStorage.getItem("items");
+  let parsedItems: Item[];
+  if (savedItems == null) {
+    parsedItems = initialItems;
+  } else {
+    parsedItems = JSON.parse(savedItems);
+  }
 
+  const [error, setError] = useState(null);
+  const [items, setItems] = useState<Item[]>(parsedItems);
+
+  // If the application is in server mode then we fetch data directly from the server
+  if (SERVER == true) {
+    useEffect(() => {
+      fetch(`http://localhost:7000/api/tasks`)
+        .then((response) => {
+          if (!response.ok) {
+            throw new Error(
+              `This is an HTTP error: The status is ${response.status}`
+            );
+          }
+          return response.json();
+        })
+        .then((actualData) => {
+          setItems(actualData);
+          setError(null);
+        })
+        .catch((err) => {
+          setError(err.message);
+        });
+    }, []);
+  }
+
+  // Using either local storage or POSTGRESQL to store all items
   useEffect(() => {
-    // Using local storage to store all items
-    localStorage.setItem("items", JSON.stringify(items));
+    if (SERVER === true) {
+      fetch("http://localhost:7000/api/task", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        // We convert the React state to JSON and send it as the POST body
+        body: JSON.stringify(items),
+      })
+        .then((response) => {
+          if (!response.ok) {
+            throw new Error(
+              `This is an HTTP error: The status is ${response.status}`
+            );
+          }
+          return response.json();
+        })
+        .catch((err) => {
+          setError(err.message);
+        });
+    } else {
+      localStorage.setItem("items", JSON.stringify(items));
+    }
   }, [items]);
 
+  // Toggling function
   const toggleItem = (currentItem: Item) => {
     // Getting the index of the current object
     const index = items.findIndex((object) => {
@@ -60,22 +108,26 @@ const App: React.FC<Props> = (props) => {
     // Checking if a task with the same title already exists in our list
     const found = items.some((item) => item.title === newItem.title);
     if (found) {
-      alert("A task with the same title already exits!");
+      alert("A task with the same title already exists!");
     } else {
       setItems([newItem, ...items]);
     }
   };
 
-  if (!props.singleView) {
-    return (
-      <>
-        <TodoList items={items} toggleItem={toggleItem} />
-        <Form addItem={addItem}></Form>
-      </>
-    );
-  } else {
-    return <SingleView items={items} />;
-  }
+  return (
+    <>
+      {props.singleView && <SingleView items={items} />}
+      {!props.singleView && (
+        <div>
+          <Form addItem={addItem}></Form>
+          <TodoContext.Provider value={toggleItem}>
+            <TodoList items={items} />
+          </TodoContext.Provider>
+          {error && <div>{`Server communication error - ${error}`}</div>}
+        </div>
+      )}
+    </>
+  );
 };
 
 export default App;
