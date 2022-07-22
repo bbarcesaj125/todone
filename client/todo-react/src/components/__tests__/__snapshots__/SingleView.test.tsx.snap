@@ -1,0 +1,35 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`SingleView displays information about a single task 1`] = `
+<DocumentFragment>
+  <article>
+    <h1>
+      Reading
+    </h1>
+    <p>
+      Read a book
+    </p>
+    <br />
+    <button>
+      Go back
+    </button>
+  </article>
+</DocumentFragment>
+`;
+
+exports[`SingleView should display information about a single task 1`] = `
+<DocumentFragment>
+  <article>
+    <h1>
+      Reading
+    </h1>
+    <p>
+      Read a book
+    </p>
+    <br />
+    <button>
+      Go back
+    </button>
+  </article>
+</DocumentFragment>
+`;

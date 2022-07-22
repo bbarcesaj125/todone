@@ -1,0 +1,38 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Form Form renders correctly 1`] = `<DocumentFragment />`;
+
+exports[`SingleView should display information about a single task 1`] = `
+<DocumentFragment>
+  <form>
+    <h2>
+      <label>
+        Please enter the task's title:
+      </label>
+    </h2>
+    <input
+      aria-label="title"
+      name="title"
+      placeholder="Title"
+      required=""
+      type="text"
+      value=""
+    />
+    <h2>
+      <label>
+        Please enter the task's description (optional):
+      </label>
+    </h2>
+    <textarea
+      aria-label="description"
+      name="description"
+      placeholder="Description"
+    />
+    <button
+      type="submit"
+    >
+      Add
+    </button>
+  </form>
+</DocumentFragment>
+`;

@@ -1,0 +1,139 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`TodoList displays a list of tasks 1`] = `
+<DocumentFragment>
+  <ul>
+    <li>
+      <input
+        checked=""
+        type="checkbox"
+      />
+      <a
+        href="/task/Reading"
+      >
+        <label
+          class="sc-bczRLJ cFTAWH"
+          title="Reading"
+        >
+          Reading
+        </label>
+      </a>
+    </li>
+    <li>
+      <input
+        checked=""
+        type="checkbox"
+      />
+      <a
+        href="/task/Shopping"
+      >
+        <label
+          class="sc-bczRLJ cFTAWH"
+          title="Shopping"
+        >
+          Shopping
+        </label>
+      </a>
+    </li>
+    <li>
+      <input
+        type="checkbox"
+      />
+      <a
+        href="/task/Github"
+      >
+        <label
+          class="sc-bczRLJ cKhOHf"
+          title="Github"
+        >
+          Github
+        </label>
+      </a>
+    </li>
+    <li>
+      <input
+        type="checkbox"
+      />
+      <a
+        href="/task/Writing"
+      >
+        <label
+          class="sc-bczRLJ cKhOHf"
+          title="Writing"
+        >
+          Writing
+        </label>
+      </a>
+    </li>
+  </ul>
+</DocumentFragment>
+`;
+
+exports[`TodoSingle should be checked for the task 'Reading' 1`] = `
+<DocumentFragment>
+  <ul>
+    <li>
+      <input
+        checked=""
+        type="checkbox"
+      />
+      <a
+        href="/task/Reading"
+      >
+        <label
+          class="sc-bczRLJ cFTAWH"
+          title="Reading"
+        >
+          Reading
+        </label>
+      </a>
+    </li>
+    <li>
+      <input
+        checked=""
+        type="checkbox"
+      />
+      <a
+        href="/task/Shopping"
+      >
+        <label
+          class="sc-bczRLJ cFTAWH"
+          title="Shopping"
+        >
+          Shopping
+        </label>
+      </a>
+    </li>
+    <li>
+      <input
+        type="checkbox"
+      />
+      <a
+        href="/task/Github"
+      >
+        <label
+          class="sc-bczRLJ cKhOHf"
+          title="Github"
+        >
+          Github
+        </label>
+      </a>
+    </li>
+    <li>
+      <input
+        type="checkbox"
+      />
+      <a
+        href="/task/Writing"
+      >
+        <label
+          class="sc-bczRLJ cKhOHf"
+          title="Writing"
+        >
+          Writing
+        </label>
+      </a>
+    </li>
+  </ul>
+</DocumentFragment>
+`;
