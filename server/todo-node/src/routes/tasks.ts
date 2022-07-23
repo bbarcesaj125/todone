@@ -5,6 +5,6 @@ const tasksRouter = Router();
 const taskController = new TaskController();
 
 tasksRouter.get("/tasks", taskController.getTasks);
-tasksRouter.post("/task", taskController.saveTask);
+tasksRouter.post("/tasks", taskController.saveTasks);
 
 export default tasksRouter;

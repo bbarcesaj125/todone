@@ -1,13 +1,22 @@
-import { Request, Response } from "express";
+import { Request, Response, NextFunction } from "express";
 import { TaskRepository } from "../repositories/TaskRepository";
 
 export default class TaskController {
-  async getTasks(req: Request, res: Response) {
-    const tasks = await TaskRepository.find();
-    return res.json(tasks);
+  async getTasks(req: Request, res: Response, next: NextFunction) {
+    try {
+      console.log("Request: ", req);
+      const tasks = await TaskRepository.find();
+      return res.json(tasks);
+    } catch (error) {
+      next(error);
+    }
   }
-  async saveTask(req: Request, res: Response) {
-    const task = await TaskRepository.upSert(req.body);
-    return res.send(task);
+  async saveTasks(req: Request, res: Response, next: NextFunction) {
+    try {
+      const task = await TaskRepository.upSert(req.body);
+      return res.send(task);
+    } catch (error) {
+      next(error);
+    }
   }
 }

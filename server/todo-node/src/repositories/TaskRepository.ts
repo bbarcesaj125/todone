@@ -22,7 +22,6 @@ export const TaskRepository = AppDataSource.getRepository(Task).extend({
         conflict_target: ["title"],
         overwrite: ["title", "description", "complete"],
       })
-
       .returning("*")
       .execute();
   },

@@ -1,6 +1,6 @@
 import * as dotenv from "dotenv";
 import express from "express";
-import { Application, Request, Response } from "express";
+import { Application, Request, Response, NextFunction } from "express";
 import cors from "cors";
 import helmet from "helmet";
 import { AppDataSource } from "./data-source";
@@ -63,6 +63,12 @@ AppDataSource.initialize()
 
     // Routes
     app.use("/api", tasksRouter);
+
+    // Error handling
+    app.use((err, req: Request, res: Response, next: NextFunction) => {
+      console.error(err.stack);
+      res.status(500).send("Internal server error!");
+    });
 
     // Server
     app.listen(PORT, () => {

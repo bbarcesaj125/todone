@@ -1,5 +1,6 @@
 import React from "react";
 import { useState, useEffect, createContext } from "react";
+import useEffectsFirstRender from "./Hooks/useEffectsFirstRender";
 import TodoList from "./components/TodoList";
 import SingleView from "./components/SingleView";
 import Form from "./components/Form";
@@ -28,8 +29,9 @@ const App: React.FC<Props> = (props) => {
     parsedItems = JSON.parse(savedItems);
   }
 
-  const [error, setError] = useState(null);
   const [items, setItems] = useState<Item[]>(parsedItems);
+  const [error, setError] = useState(null);
+  const [save, setSave] = useState(false);
 
   // If the application is in server mode then we fetch data directly from the server
   if (SERVER == true) {
@@ -54,9 +56,9 @@ const App: React.FC<Props> = (props) => {
   }
 
   // Using either local storage or POSTGRESQL to store all items
-  useEffect(() => {
+  useEffectsFirstRender(() => {
     if (SERVER === true) {
-      fetch("http://localhost:7000/api/task", {
+      fetch("http://localhost:7000/api/tasks", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         // We convert the React state to JSON and send it as the POST body
@@ -76,7 +78,7 @@ const App: React.FC<Props> = (props) => {
     } else {
       localStorage.setItem("items", JSON.stringify(items));
     }
-  }, [items]);
+  }, [save]);
 
   // Toggling function
   const toggleItem = (currentItem: Item) => {
@@ -101,6 +103,7 @@ const App: React.FC<Props> = (props) => {
       updatedItems = updatedItems.concat(itemToReplace);
     }
     setItems(updatedItems);
+    setSave(true);
   };
 
   const addItem: AddItem = (task) => {
@@ -111,6 +114,7 @@ const App: React.FC<Props> = (props) => {
       alert("A task with the same title already exists!");
     } else {
       setItems([newItem, ...items]);
+      setSave(true);
     }
   };
 
