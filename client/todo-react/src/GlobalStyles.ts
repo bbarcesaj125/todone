@@ -11,6 +11,7 @@ export const GlobalStyles = createGlobalStyle<Props>`
     _height: 100vh;
     text-rendering: optimizeLegibility;
     font-family: "Albert Sans", Helvetica, Arial, sans-serif;
+    font-size: 16px;
     transition: all 0.50s linear;
   }
 `;

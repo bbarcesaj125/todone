@@ -17,6 +17,7 @@ import "./App.css";
 const Section = styled.section``;
 // Global Env. variables
 const SERVER: boolean = process.env.REACT_APP_SERVER == "true";
+const SERVER_URL = process.env.REACT_APP_API_URL as string;
 
 interface Props {
   singleView: boolean;
@@ -45,7 +46,7 @@ const App: React.FC<Props> = (props) => {
   // If the application is in server mode then we fetch data directly from the server
   if (SERVER == true) {
     useEffect(() => {
-      fetch(`http://localhost:7000/api/tasks`)
+      fetch(SERVER_URL)
         .then((response) => {
           if (!response.ok) {
             throw new Error(
@@ -67,7 +68,7 @@ const App: React.FC<Props> = (props) => {
   // Using either local storage or POSTGRESQL to store all items
   useEffectsFirstRender(() => {
     if (SERVER === true) {
-      fetch("http://localhost:7000/api/tasks", {
+      fetch(SERVER_URL, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         // We convert the React state to JSON and send it as the POST body
