@@ -115,6 +115,7 @@ const App: React.FC<Props> = (props) => {
     setSave(true);
   };
 
+  // Adding items
   const addItem: AddItem = (task) => {
     const newItem = { ...task, complete: false };
     // Checking if a task with the same title already exists in our list
@@ -133,11 +134,9 @@ const App: React.FC<Props> = (props) => {
   };
 
   return (
-    <>
-      <ThemeProvider theme={theme === "light" ? lightTheme : darkTheme}>
-        <GlobalStyles />
-        <NavBar toggleTheme={toggleTheme}></NavBar>
-      </ThemeProvider>
+    <ThemeProvider theme={theme === "light" ? lightTheme : darkTheme}>
+      <GlobalStyles />
+      <NavBar toggleTheme={toggleTheme}></NavBar>
       <MainContainer>
         {props.singleView && <SingleView items={items} />}
         {!props.singleView && (
@@ -150,7 +149,7 @@ const App: React.FC<Props> = (props) => {
           </Section>
         )}
       </MainContainer>
-    </>
+    </ThemeProvider>
   );
 };
 

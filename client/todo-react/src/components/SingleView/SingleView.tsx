@@ -7,9 +7,17 @@ interface Props {
 }
 // Styles
 const Article = styled.article``;
-const Heading = styled.h1``;
+const Heading = styled.h2``;
 const P = styled.p``;
-const Button = styled.button``;
+const Button = styled.button`
+  width: 100%;
+  height: 50px;
+  background-color: ${(props) => props.theme.switchBackground};
+  color: ${(props) => props.theme.text};
+  border: 1px solid ${(props) => props.theme.border};
+  border-radius: 5px;
+  cursor: pointer;
+`;
 
 const SingleView: React.FC<Props> = ({ items }) => {
   const { id } = useParams();

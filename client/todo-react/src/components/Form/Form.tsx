@@ -6,6 +6,10 @@ interface Props {
   addItem: AddItem;
 }
 
+interface LabelProps {
+  for: string;
+}
+
 // Styles
 const FormElement = styled.form`
   display: flex;
@@ -16,13 +20,36 @@ const FormElement = styled.form`
 
 const Heading = styled.h2``;
 
-const Label = styled.label``;
+const Label = styled.label<LabelProps>``;
 
-const Input = styled.input``;
+const Input = styled.input`
+  width: 100%;
+  height: 50px;
+  background-color: ${(props) => props.theme.switchBackground};
+  color: ${(props) => props.theme.text};
+  border: 1px solid ${(props) => props.theme.border};
+  border-radius: 5px;
+`;
 
-const TextArea = styled.textarea``;
+const TextArea = styled.textarea`
+  width: 100%;
+  height: 100px;
+  background-color: ${(props) => props.theme.switchBackground};
+  color: ${(props) => props.theme.text};
+  border: 1px solid ${(props) => props.theme.border};
+  border-radius: 5px;
+`;
 
-const Button = styled.button``;
+const Button = styled.button`
+  width: 100%;
+  height: 50px;
+  margin: 10px;
+  background-color: ${(props) => props.theme.switchBackground};
+  color: ${(props) => props.theme.text};
+  border: 1px solid ${(props) => props.theme.border};
+  border-radius: 5px;
+  cursor: pointer;
+`;
 
 const Form: React.FC<Props> = ({ addItem }) => {
   const initialValues = {
@@ -44,14 +71,17 @@ const Form: React.FC<Props> = ({ addItem }) => {
   const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
     addItem(inputs);
+    // Form reset
+    setInputs(initialValues);
   };
   return (
     <FormElement onSubmit={handleSubmit}>
       <Heading>
-        <Label>Please enter the task&apos;s title:</Label>
+        <Label for="title">Please enter the task&apos;s title:</Label>
       </Heading>
 
       <Input
+        id="title"
         type="text"
         name="title"
         value={inputs.title}
@@ -61,9 +91,12 @@ const Form: React.FC<Props> = ({ addItem }) => {
         aria-label="title"
       />
       <Heading>
-        <Label>Please enter the task&apos;s description (optional):</Label>
+        <Label for="description">
+          Please enter the task&apos;s description (optional):
+        </Label>
       </Heading>
       <TextArea
+        id="description"
         name="description"
         value={inputs.description}
         onChange={handleChange}

@@ -9,7 +9,9 @@ interface Props {
 }
 
 // Styles
-const List = styled.ul``;
+const List = styled.ul`
+  list-style: none;
+`;
 
 const TodoList: React.FC<Props> = ({ items }) => {
   const toggleItem = useContext(TodoContext);

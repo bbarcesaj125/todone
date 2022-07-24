@@ -9,6 +9,8 @@ interface Theme {
   background: string;
   switchBackground: string;
   switchIcon: string;
+  sliderActive: string;
+  sliderInactive: string;
   border: string;
   name: string;
 }
