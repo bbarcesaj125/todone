@@ -6,17 +6,23 @@ interface Props {
   item: Item;
   toggleItem: ToggleItem;
 }
+interface Complete {
+  isDone: boolean;
+}
 
-const Label = styled.label<Item>`
-  text-decoration: ${(item) => (item.complete ? "line-through" : undefined)};
+// Styles
+const ListItem = styled.li``;
+const Input = styled.input``;
+const Label = styled.label<Complete>`
+  text-decoration: ${(item) => (item.isDone ? "line-through" : undefined)};
   margin: 0.5em 1em;
   padding: 0.25em 1em;
 `;
 
 const TodoSingle: React.FC<Props> = ({ item, toggleItem }) => {
   return (
-    <li>
-      <input
+    <ListItem>
+      <Input
         type="checkbox"
         checked={item.complete}
         onChange={() => {
@@ -24,9 +30,9 @@ const TodoSingle: React.FC<Props> = ({ item, toggleItem }) => {
         }}
       />
       <Link to={`/task/${item.title}`}>
-        <Label {...item}>{item.title}</Label>
+        <Label isDone={item.complete}>{item.title}</Label>
       </Link>
-    </li>
+    </ListItem>
   );
 };
 

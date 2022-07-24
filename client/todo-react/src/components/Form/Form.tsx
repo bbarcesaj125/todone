@@ -1,9 +1,28 @@
 import React from "react";
 import { useState } from "react";
+import styled from "styled-components";
 
 interface Props {
   addItem: AddItem;
 }
+
+// Styles
+const FormElement = styled.form`
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+`;
+
+const Heading = styled.h2``;
+
+const Label = styled.label``;
+
+const Input = styled.input``;
+
+const TextArea = styled.textarea``;
+
+const Button = styled.button``;
 
 const Form: React.FC<Props> = ({ addItem }) => {
   const initialValues = {
@@ -27,12 +46,12 @@ const Form: React.FC<Props> = ({ addItem }) => {
     addItem(inputs);
   };
   return (
-    <form onSubmit={handleSubmit}>
-      <h2>
-        <label>Please enter the task&apos;s title:</label>
-      </h2>
+    <FormElement onSubmit={handleSubmit}>
+      <Heading>
+        <Label>Please enter the task&apos;s title:</Label>
+      </Heading>
 
-      <input
+      <Input
         type="text"
         name="title"
         value={inputs.title}
@@ -41,19 +60,19 @@ const Form: React.FC<Props> = ({ addItem }) => {
         placeholder="Title"
         aria-label="title"
       />
-      <h2>
-        <label>Please enter the task&apos;s description (optional):</label>
-      </h2>
-      <textarea
+      <Heading>
+        <Label>Please enter the task&apos;s description (optional):</Label>
+      </Heading>
+      <TextArea
         name="description"
         value={inputs.description}
         onChange={handleChange}
         placeholder="Description"
         aria-label="description"
-      ></textarea>
+      ></TextArea>
 
-      <button type="submit">Add</button>
-    </form>
+      <Button type="submit">Add</Button>
+    </FormElement>
   );
 };
 

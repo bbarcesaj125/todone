@@ -3,7 +3,17 @@ interface Item {
   description?: string;
   complete: boolean;
 }
+interface Theme {
+  body: string;
+  text: string;
+  background: string;
+  switchBackground: string;
+  switchIcon: string;
+  border: string;
+  name: string;
+}
 type Task = Omit<Item, "complete">;
 
 type ToggleItem = (currentItem: Item) => void;
+type ToggleTheme = () => void;
 type AddItem = (task: Task) => void;

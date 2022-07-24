@@ -1,9 +1,16 @@
 import React from "react";
 import { useParams, useNavigate } from "react-router-dom";
+import styled from "styled-components";
 
 interface Props {
   items: Item[];
 }
+// Styles
+const Article = styled.article``;
+const Heading = styled.h1``;
+const P = styled.p``;
+const Button = styled.button``;
+
 const SingleView: React.FC<Props> = ({ items }) => {
   const { id } = useParams();
 
@@ -17,12 +24,12 @@ const SingleView: React.FC<Props> = ({ items }) => {
   }
 
   return (
-    <article>
-      <h1>{items[index].title}</h1>
-      <p>{items[index].description}</p>
+    <Article>
+      <Heading>{items[index].title}</Heading>
+      <P>{items[index].description}</P>
       <br />
-      <button onClick={handleClick}>Go back</button>
-    </article>
+      <Button onClick={handleClick}>Go back</Button>
+    </Article>
   );
 };
 

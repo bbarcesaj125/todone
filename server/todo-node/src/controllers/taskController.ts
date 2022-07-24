@@ -4,7 +4,6 @@ import { TaskRepository } from "../repositories/TaskRepository";
 export default class TaskController {
   async getTasks(req: Request, res: Response, next: NextFunction) {
     try {
-      console.log("Request: ", req);
       const tasks = await TaskRepository.find();
       return res.json(tasks);
     } catch (error) {
