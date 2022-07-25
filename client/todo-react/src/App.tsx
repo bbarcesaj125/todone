@@ -39,6 +39,7 @@ const App: React.FC<Props> = (props) => {
   }
 
   const [items, setItems] = useState<Item[]>(parsedItems);
+  const [change, setChange] = useState(false);
   const [error, setError] = useState(null);
   const [theme, setTheme] = useState("light");
 
@@ -87,7 +88,7 @@ const App: React.FC<Props> = (props) => {
     } else {
       localStorage.setItem("items", JSON.stringify(items));
     }
-  }, [items]);
+  }, [change]);
 
   // Toggling function
   const toggleItem = (currentItem: Item) => {
@@ -112,6 +113,7 @@ const App: React.FC<Props> = (props) => {
       updatedItems = updatedItems.concat(itemToReplace);
     }
     setItems(updatedItems);
+    setChange(!change);
   };
 
   // Adding items
@@ -123,6 +125,7 @@ const App: React.FC<Props> = (props) => {
       alert("A task with the same title already exists!");
     } else {
       setItems([newItem, ...items]);
+      setChange(!change);
     }
   };
 
