@@ -7,7 +7,7 @@
 	<img width="200" src="https://raw.githubusercontent.com/bbarcesaj125/todone/main/images/Logo-Github.png" alt="toDone Logo">
 </p>
 
-This is a simple Todo application that is entirely written in Typescript.
+This is a simple Todo application that is entirely written in TypeScript.
 
 ## Introduction
 
