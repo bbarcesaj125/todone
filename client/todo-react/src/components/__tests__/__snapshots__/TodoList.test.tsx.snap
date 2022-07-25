@@ -2,136 +2,105 @@
 
 exports[`TodoList displays a list of tasks 1`] = `
 <DocumentFragment>
-  <ul>
-    <li>
-      <input
-        checked=""
-        type="checkbox"
-      />
+  <ul
+    class="sc-ivTmOn eSbCPB"
+  >
+    <li
+      class="sc-hHLeRK kIcZGb"
+    >
+      <label
+        class="sc-kgflAQ kTxDAi"
+      >
+        <input
+          checked=""
+          class="sc-dmRaPn dHNLyZ"
+          type="checkbox"
+        />
+        <div
+          class="sc-fLlhyt lpoVEp"
+        />
+      </label>
       <a
         href="/task/Reading"
       >
-        <label
-          class="sc-bczRLJ cFTAWH"
-          title="Reading"
+        <div
+          class="sc-bBrHrO cxXXrc"
         >
           Reading
-        </label>
+        </div>
       </a>
     </li>
-    <li>
-      <input
-        checked=""
-        type="checkbox"
-      />
+    <li
+      class="sc-hHLeRK kIcZGb"
+    >
+      <label
+        class="sc-kgflAQ kTxDAi"
+      >
+        <input
+          checked=""
+          class="sc-dmRaPn dHNLyZ"
+          type="checkbox"
+        />
+        <div
+          class="sc-fLlhyt lpoVEp"
+        />
+      </label>
       <a
         href="/task/Shopping"
       >
-        <label
-          class="sc-bczRLJ cFTAWH"
-          title="Shopping"
+        <div
+          class="sc-bBrHrO cxXXrc"
         >
           Shopping
-        </label>
+        </div>
       </a>
     </li>
-    <li>
-      <input
-        type="checkbox"
-      />
+    <li
+      class="sc-hHLeRK kIcZGb"
+    >
+      <label
+        class="sc-kgflAQ kTxDAi"
+      >
+        <input
+          class="sc-dmRaPn dHNLyZ"
+          type="checkbox"
+        />
+        <div
+          class="sc-fLlhyt lpoVEp"
+        />
+      </label>
       <a
         href="/task/Github"
       >
-        <label
-          class="sc-bczRLJ cKhOHf"
-          title="Github"
+        <div
+          class="sc-bBrHrO dVkIRI"
         >
           Github
-        </label>
+        </div>
       </a>
     </li>
-    <li>
-      <input
-        type="checkbox"
-      />
+    <li
+      class="sc-hHLeRK kIcZGb"
+    >
+      <label
+        class="sc-kgflAQ kTxDAi"
+      >
+        <input
+          class="sc-dmRaPn dHNLyZ"
+          type="checkbox"
+        />
+        <div
+          class="sc-fLlhyt lpoVEp"
+        />
+      </label>
       <a
         href="/task/Writing"
       >
-        <label
-          class="sc-bczRLJ cKhOHf"
-          title="Writing"
+        <div
+          class="sc-bBrHrO dVkIRI"
         >
           Writing
-        </label>
-      </a>
-    </li>
-  </ul>
-</DocumentFragment>
-`;
-
-exports[`TodoSingle should be checked for the task 'Reading' 1`] = `
-<DocumentFragment>
-  <ul>
-    <li>
-      <input
-        checked=""
-        type="checkbox"
-      />
-      <a
-        href="/task/Reading"
-      >
-        <label
-          class="sc-bczRLJ cFTAWH"
-          title="Reading"
-        >
-          Reading
-        </label>
-      </a>
-    </li>
-    <li>
-      <input
-        checked=""
-        type="checkbox"
-      />
-      <a
-        href="/task/Shopping"
-      >
-        <label
-          class="sc-bczRLJ cFTAWH"
-          title="Shopping"
-        >
-          Shopping
-        </label>
-      </a>
-    </li>
-    <li>
-      <input
-        type="checkbox"
-      />
-      <a
-        href="/task/Github"
-      >
-        <label
-          class="sc-bczRLJ cKhOHf"
-          title="Github"
-        >
-          Github
-        </label>
-      </a>
-    </li>
-    <li>
-      <input
-        type="checkbox"
-      />
-      <a
-        href="/task/Writing"
-      >
-        <label
-          class="sc-bczRLJ cKhOHf"
-          title="Writing"
-        >
-          Writing
-        </label>
+        </div>
       </a>
     </li>
   </ul>

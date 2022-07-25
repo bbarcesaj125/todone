@@ -6,10 +6,6 @@ interface Props {
   addItem: AddItem;
 }
 
-interface LabelProps {
-  for: string;
-}
-
 // Styles
 const FormElement = styled.form`
   display: flex;
@@ -20,7 +16,7 @@ const FormElement = styled.form`
 
 const Heading = styled.h2``;
 
-const Label = styled.label<LabelProps>``;
+const Label = styled.label``;
 
 const Input = styled.input`
   width: 100%;
@@ -77,7 +73,7 @@ const Form: React.FC<Props> = ({ addItem }) => {
   return (
     <FormElement onSubmit={handleSubmit}>
       <Heading>
-        <Label for="title">Please enter the task&apos;s title:</Label>
+        <Label htmlFor="title">Please enter the task&apos;s title:</Label>
       </Heading>
 
       <Input
@@ -91,7 +87,7 @@ const Form: React.FC<Props> = ({ addItem }) => {
         aria-label="title"
       />
       <Heading>
-        <Label for="description">
+        <Label htmlFor="description">
           Please enter the task&apos;s description (optional):
         </Label>
       </Heading>
