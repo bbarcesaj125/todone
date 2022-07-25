@@ -43,9 +43,9 @@ The application also has a Dark Mode which I implemented using `Styled Component
 it would be cool to have it in my application:
 
 <p align="center">
-	<img width="400" src="https://raw.githubusercontent.com/bbarcesaj125/todone/main/images/light-mode.webP" alt="toDone light mode">
+	<img width="800" src="https://raw.githubusercontent.com/bbarcesaj125/todone/main/images/light-mode.webP" alt="toDone light mode">
 </p>
 
 <p align="center">
-	<img width="400" src="https://raw.githubusercontent.com/bbarcesaj125/todone/main/images/dark-mode.webP" alt="toDone dark mode">
+	<img width="800" src="https://raw.githubusercontent.com/bbarcesaj125/todone/main/images/dark-mode.webP" alt="toDone dark mode">
 </p>
