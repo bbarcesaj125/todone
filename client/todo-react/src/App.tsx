@@ -40,7 +40,6 @@ const App: React.FC<Props> = (props) => {
 
   const [items, setItems] = useState<Item[]>(parsedItems);
   const [error, setError] = useState(null);
-  const [save, setSave] = useState(false);
   const [theme, setTheme] = useState("light");
 
   // If the application is in server mode then we fetch data directly from the server
@@ -88,7 +87,7 @@ const App: React.FC<Props> = (props) => {
     } else {
       localStorage.setItem("items", JSON.stringify(items));
     }
-  }, [save]);
+  }, [items]);
 
   // Toggling function
   const toggleItem = (currentItem: Item) => {
@@ -113,7 +112,6 @@ const App: React.FC<Props> = (props) => {
       updatedItems = updatedItems.concat(itemToReplace);
     }
     setItems(updatedItems);
-    setSave(true);
   };
 
   // Adding items
@@ -125,7 +123,6 @@ const App: React.FC<Props> = (props) => {
       alert("A task with the same title already exists!");
     } else {
       setItems([newItem, ...items]);
-      setSave(true);
     }
   };
 
